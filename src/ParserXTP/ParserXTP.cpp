@@ -13,13 +13,12 @@
 #include "../Includes/WTSContractInfo.hpp"
 #include "../Includes/WTSVariant.hpp"
 #include "../Includes/IBaseDataMgr.h"
+#include "../Includes/WTSStruct.h"
 
 #include "../Share/TimeUtils.hpp"
 #include "../Share/ModuleHelper.hpp"
-#include "../Share/Converter.hpp"
 
-#include <filesystem>
-namespace fs = std::filesystem;
+#include <boost/filesystem.hpp>
 
  //By Wesley @ 2022.01.05
 #include "../Share/fmtlib.h"
@@ -67,7 +66,7 @@ inline uint32_t strToTime(const char* strTime)
 		pos++;
 	}
 
-	return convert::to_uint32(str.c_str());
+	return strtoul(str.c_str(), NULL, 10);
 }
 
 inline double checkValid(double val)
@@ -113,8 +112,10 @@ bool ParserXTP::init(WTSVariant* config)
 	if (module.empty())
 		module = "xtpquoteapi";
 
-	std::string path = fmtutil::format("{}/{}/", m_strFlowDir.c_str(), m_strUser.c_str());
-	fs::create_directories(path.c_str());
+	char path[1024];
+	sprintf(path, "%s/%s/", m_strFlowDir.c_str(), m_strUser.c_str());
+	//std::string path = StrUtil::printf("%s/%s/", m_strFlowDir.c_str(), m_strUser.c_str());
+	boost::filesystem::create_directories(path);
 
 	std::string dllpath = getBinDir() + DLLHelper::wrap_module(module.c_str(), "lib");;
 	m_hInst = DLLHelper::load_library(dllpath.c_str());
@@ -128,7 +129,7 @@ bool ParserXTP::init(WTSVariant* config)
 	const char* creatorName = "_ZN3XTP3API8QuoteApi14CreateQuoteApiEhPKc13XTP_LOG_LEVEL";
 #endif
 	m_funcCreator = (XTPCreater)DLLHelper::get_symbol(m_hInst, creatorName);
-	m_pUserAPI = m_funcCreator(m_uClientID, path.c_str(), XTP_LOG_LEVEL_DEBUG);
+	m_pUserAPI = m_funcCreator(m_uClientID, path, XTP_LOG_LEVEL_DEBUG);
 	m_pUserAPI->RegisterSpi(this);
 
 	return true;
@@ -252,7 +253,6 @@ void ParserXTP::OnTickByTick(XTPTBT *tbt_data)
 
 		if (m_sink)
 			m_sink->handleOrderDetail(ordDtl);
-		ordDtl->release();
 	}
 	else if (tbt_data->type == XTP_TBT_TRADE)
 	{
@@ -268,6 +268,7 @@ void ParserXTP::OnTickByTick(XTPTBT *tbt_data)
 		ts.action_time = actTime;
 
 		ts.index = tInfo.seq;
+		//FIXME: XTPTickByTickTrade 中trade_flag 和 WT的WTSBSDirectType不完全Mach
 		ts.side = (WTSBSDirectType)tInfo.trade_flag;
 		ts.ttype = tInfo.trade_flag == '4' ? TT_Cancel : TT_Match;
 
@@ -278,7 +279,6 @@ void ParserXTP::OnTickByTick(XTPTBT *tbt_data)
 
 		if (m_sink)
 			m_sink->handleTransaction(trans);
-		trans->release();
 	}
 }
 
