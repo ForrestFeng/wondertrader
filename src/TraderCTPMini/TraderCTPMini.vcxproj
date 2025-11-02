@@ -22,7 +22,7 @@
     <ProjectGuid>{A9B17A19-7EFA-4B8B-BB31-4E79EDEC08AA}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>TraderCTPMini</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
     <ProjectName>TraderCTPMini</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />

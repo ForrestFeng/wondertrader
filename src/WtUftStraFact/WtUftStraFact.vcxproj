@@ -22,7 +22,7 @@
     <ProjectGuid>{50EFCB3A-6A79-4559-965C-E85DF1C39D22}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>WtUftStraFact</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

@@ -22,7 +22,7 @@
     <ProjectGuid>{4C93FBFF-6203-4133-9B05-7AA6D4F04046}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>WtRiskMonFact</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

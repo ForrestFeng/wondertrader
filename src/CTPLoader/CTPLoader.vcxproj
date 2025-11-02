@@ -22,7 +22,7 @@
     <ProjectGuid>{1B6A38BF-6DD4-4E55-BA95-96F9615144F0}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>CTPLoader</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

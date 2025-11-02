@@ -22,7 +22,7 @@
     <ProjectGuid>{5AB06F76-878B-444E-96D7-8DB8133E5785}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>TraderXTPXAlgo</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
     <ProjectName>TraderXTPXAlgo</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />

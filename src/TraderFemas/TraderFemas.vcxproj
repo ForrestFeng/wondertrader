@@ -22,7 +22,7 @@
     <ProjectGuid>{7A6C4CEE-BE37-43A1-96A0-25EEC1D5D012}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>TraderFemas</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
     <ProjectName>TraderFemas</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />

@@ -22,7 +22,7 @@
     <ProjectGuid>{CD6DE209-C68E-43FA-8C55-A92A346D020A}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>WtDtHelper</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
